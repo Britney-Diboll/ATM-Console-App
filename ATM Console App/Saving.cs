@@ -8,6 +8,13 @@ namespace ATM_Console_App
 {
     class Saving
     {
+        public string SAccountNumber { get; }
+        public string SAccountBalance { get; }
 
+        public Saving(string saccountnumber, string saccountbalance)
+        {
+            SAccountNumber = saccountnumber;
+            SAccountBalance = saccountbalance;
+        }
     }
 }

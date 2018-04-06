@@ -20,35 +20,29 @@ namespace ATM_Console_App
             if (input == "Jane Doe")
             {
                 Console.WriteLine("Thank you, please choose which account you would like to enter into?");
-                Console.WriteLine("1.Checkings Account");
-                Console.WriteLine("2.Savings Account");
-                Console.WriteLine("Type 1 or 2 to see that account!");
+                Console.WriteLine("Checkings Account");
+                Console.WriteLine("Savings Account");
+                Console.WriteLine("Type Checking or Saving to see that account!");
                 input = Console.ReadLine();
-                if(input == "1")
-                {
-
-                } else if(input == "2")
-                {
-
-                }
-            } 
-            else if(input != "Jane Doe")
-            {
-                Console.WriteLine("Please enter the correct spelling of your first and last name.");
-                input = Console.ReadLine();
-
-                if (input == "Jane Doe")
-                {
-                    Console.WriteLine("Thank you, please choose which account you would like to enter into?");
-                    Console.ReadLine();
-                }
             }
-            var checkings = new Checking("12345", "100");
-            Console.WriteLine($"Your checking account number is: {checkings.CAccountNumber}");
-            Console.WriteLine($"Your checking account balance is: {checkings.CAccountBalance}");
-            Console.ReadLine();
-
-
+            if (input == "Checking")
+            {
+                var checkings = new Checking("12345", "100");
+                Console.WriteLine($"Your checking account number is: {checkings.CAccountNumber}");
+                Console.WriteLine($"Your checking account balance is: {checkings.CAccountBalance}");
+                Console.ReadLine();
+                Console.WriteLine("Would you like to deposit, withdrawal or transfer (to savings) money? Please type deposit, withdrawal or transfer.");
+                Console.ReadLine();
+            }
+            else if (input == "Saving")
+            {
+                var savings = new Saving("54321", "100");
+                Console.WriteLine($"Your savings account number is: {savings.SAccountNumber}");
+                Console.WriteLine($"Your savings account balance is: {savings.SAccountBalance}");
+                Console.ReadLine();
+                Console.WriteLine("Would you like to deposit, withdrawal or transfer (to checkings) money? Please type deposit, withdrawal or transfer.");
+                Console.ReadLine();
+            } 
         }
     }
 }
