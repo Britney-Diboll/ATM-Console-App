@@ -8,13 +8,31 @@ namespace ATM_Console_App
 {
     class Saving
     {
-        public string SAccountNumber { get; }
-        public string SAccountBalance { get; }
+        public double SavingAccountBalance { get; set; } = 0.00;
 
-        public Saving(string saccountnumber, string saccountbalance)
+        public double Deposit(double savingAccountBalance, double amount)
         {
-            SAccountNumber = saccountnumber;
-            SAccountBalance = saccountbalance;
+            SavingAccountBalance = savingAccountBalance + amount;
+
+            return SavingAccountBalance;
+        }
+        public double Withdrawl(double savingAccountBalance, double amount)
+        {
+            if (amount > savingAccountBalance)
+            {
+                Console.WriteLine("Insufficient Funds. Please try again.");
+                return SavingAccountBalance;
+            }
+            else
+            {
+                SavingAccountBalance = savingAccountBalance - amount;
+                return SavingAccountBalance;
+            }
+        }
+
+        public Saving()
+        {
+
         }
     }
 }
